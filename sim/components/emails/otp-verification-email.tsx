@@ -46,19 +46,15 @@ export const OTPVerificationEmail = ({
       <Body style={baseStyles.main}>
         <Preview>{getSubjectByType(type)}</Preview>
         <Container style={baseStyles.container}>
-          <Section
-            style={{
-              ...baseStyles.header,
-              textAlign: 'center',
-              padding: '30px',
-            }}
-          >
+          <Section style={{ ...baseStyles.header, textAlign: 'center' }}>
             <Img
               src={`${baseUrl}/sim.png`}
-              width="114"
+              width="120"
+              height="40"
               alt="Sim Studio"
               style={{
-                display: 'inline-block',
+                display: 'block',
+                objectFit: 'contain',
                 margin: '0 auto',
               }}
             />
@@ -96,46 +92,37 @@ export const OTPVerificationEmail = ({
         </Container>
 
         <Section style={baseStyles.footer}>
-          <Row>
-            <Column align="right" style={{ width: '50%', paddingRight: '8px' }}>
-              <Link href="https://x.com/simstudioai" style={{ textDecoration: 'none' }}>
-                <Img
-                  src={`${baseUrl}/x-icon.png`}
-                  width="20"
-                  height="20"
-                  alt="X"
-                  style={{
-                    display: 'block',
-                    marginLeft: 'auto',
-                    filter: 'grayscale(100%)',
-                    opacity: 0.7,
-                  }}
-                />
-              </Link>
-            </Column>
-            <Column align="left" style={{ width: '50%', paddingLeft: '8px' }}>
-              <Link href="https://discord.gg/crdsGfGk" style={{ textDecoration: 'none' }}>
-                <Img
-                  src={`${baseUrl}/discord-icon.png`}
-                  width="24"
-                  height="24"
-                  alt="Discord"
-                  style={{
-                    display: 'block',
-                    filter: 'grayscale(100%)',
-                    opacity: 0.9,
-                  }}
-                />
-              </Link>
-            </Column>
-          </Row>
-          <Text
-            style={{
-              ...baseStyles.footerText,
-              textAlign: 'center',
-              color: '#706a7b',
-            }}
-          >
+          <table width="100%" border={0} cellPadding={0} cellSpacing={0} role="presentation">
+            <tr>
+              <td align="center" style={{ padding: '10px 0' }}>
+                <Link
+                  href="https://x.com/simstudioai"
+                  style={{ textDecoration: 'none', margin: '0 8px', display: 'inline-block' }}
+                >
+                  <Img
+                    src={`${baseUrl}/x-icon.png`}
+                    width="24"
+                    height="24"
+                    alt="X"
+                    style={{ display: 'block' }}
+                  />
+                </Link>
+                <Link
+                  href="https://discord.gg/crdsGfGk"
+                  style={{ textDecoration: 'none', margin: '0 8px', display: 'inline-block' }}
+                >
+                  <Img
+                    src={`${baseUrl}/discord-icon.png`}
+                    width="24"
+                    height="24"
+                    alt="Discord"
+                    style={{ display: 'block' }}
+                  />
+                </Link>
+              </td>
+            </tr>
+          </table>
+          <Text style={baseStyles.footerText}>
             © {new Date().getFullYear()} Sim Studio, All Rights Reserved
             <br />
             If you have any questions, please contact us at support@simstudio.ai
