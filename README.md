@@ -94,6 +94,28 @@ To use local models with Sim Studio, follow these steps:
 
 The application will now be configured to use your local models. You can access it at [http://localhost:3000/w/](http://localhost:3000/w/).
 
+#### Connecting to Existing Ollama Instance
+
+If you already have an Ollama instance running on your host machine, you can connect to it using one of these methods:
+
+```bash
+# Method 1: Use host networking (simplest approach)
+docker compose up --profile local-cpu -d --build --network=host
+```
+
+Or modify your docker-compose.yml:
+
+```yaml
+# Method 2: Add host.docker.internal mapping
+services:
+  simstudio:
+    # ... existing configuration ...
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    environment:
+      - OLLAMA_HOST=http://host.docker.internal:11434
+```
+
 ### Option 2: Dev Containers
 
 1. Open VS Code or your favorite VS Code fork (Cursor, Windsurf, etc.)
